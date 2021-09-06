@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+        margin:0;
+        position: relative;
+    }
+    img{
+        position:absolute;
+        width: 150px;
+        height: 150px;
+    }
+</style>
+</head>
+<body>
+  <h3>随着鼠标拖动而移动的小猫咪</h3>
+<img id="cat" src="../图片/京东.png" alt=""/>
+<script>
+    var cat = document.getElementById('cat');
+    cat.ondragstart = function(e){
+        console.log('cat开始移动');
+        offsetX = e.offsetX;
+        offsetY = e.offsetY;
+    };
+    cat.ondrag = function(e){
+        // console.log('事件源cat正在拖动中');
+        var x = e.pageX;
+        var y = e.pageY;
+        console.log(x + '-' +y);
+        if(x === 0 && y === 0){//不处理最后一刻x,y都为0 的情景
+            return
+        };
+        x -= offsetX;
+        y -= offsetY;
+        cat.style.left = x+ 'px';
+        cat.style.top = y + 'px';
+    }
+    cat.ondragend = function (e) {
+        console.log('cat源对象拖动结束')
+    }
+</script>
+</body>
+</html>

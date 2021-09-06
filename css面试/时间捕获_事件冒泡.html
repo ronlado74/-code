@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="clickMe">Click Me</button>
+    <script>
+      var button = document.getElementById("clickMe");
+
+      button.onclick = function () {
+        console.log("1. You click Button");
+      };
+      document.body.onclick = function () {
+        console.log("2. You click body");
+      };
+      document.onclick = function () {
+        console.log("3. You click document");
+      };
+      window.onclick = function () {
+        console.log("4. You click window");
+      };
+      // window.addEventListener('click',function(){
+      //   console.log('you click window')
+      // },true)
+      button.addEventListener(
+        "click",
+        function (event) {
+          // event为事件对象
+          console.log("1. You click Button");
+          event.stopPropagation();
+          console.log("Stop Propagation!");
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
