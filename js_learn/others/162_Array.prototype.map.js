@@ -40,8 +40,14 @@ const test1 = {
   d: 5,
 };
 
-let r1 = test1.map2((key, value) => {
+var numbers = [4, 9, 16, 25];
+
+let r1 = test1.map((key, value) => {
   return Math.pow(value, 2);
 });
 
-console.log(r1);
+let r2 = numbers.map2((key, value) => {
+  return Math.pow(value, 2);
+});
+
+console.log(r2);
