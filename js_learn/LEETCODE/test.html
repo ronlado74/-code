@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-    s = "abcabcbb";
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      s = "abcabcbb";
 
-var lengthOfLongestSubstring = function (s) {
-  let max = 0;
-  for (let i = 0; i < s.length; i++) {
-    let arr = [s[i]];
-    for (let j = i + 1; j < s.length; j++) {
-      if (arr.includes(s[j])) {
-        break;
+      let arr = [1, 2, 3, 4, 5];
+      let arr2 = [];
+      let k = 2;
+      for (let i = 0; i < arr.length; i += k) {
+        if (i + k <= arr.length) {
+          arr2.push(arr.slice(i, i + k));
+        } else {
+          arr2.push(arr.slice(i, arr.length));
+        }
       }
-      arr.push(s[j]);
-    }
-    max = Math.max(max, arr.length);
-  }
-  return max;
-};
-console.log(lengthOfLongestSubstring(s));
-  </script>
-</body>
+      console.log(arr2)
+    </script>
+  </body>
 </html>
