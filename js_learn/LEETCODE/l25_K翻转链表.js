@@ -23,7 +23,8 @@ var reverseKGroup = function (head, k) {
       arr2[i].reverse();
     }
   }
-  //将[ [ 3, 2, 1 ], [ 4, 5 ] ]，转化为[3,2,1,4,5]
+  //将[ [ 3, 2, 1 ], [ 4, 5 ] ]，转化为[3,2,1,4,5]，数组扁平化
+  //let s = arr2.flat()  //数组扁平化
   let s = arr2.toString().split(",").map(Number);
   //将处理好的数组赋值给链表
   p = head;
@@ -31,7 +32,7 @@ var reverseKGroup = function (head, k) {
   while (p) {
     p.val = s[i];
     p = p.next;
-    i++
+    i++;
   }
   return head;
 };
