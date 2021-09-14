@@ -2,7 +2,7 @@ const wang = {
   id: 1,
   name: "zhangsan",
   age: 18,
-  fn: function (x) {
+  fn: function (x) {   //或者fn(){}
     return this.id + x;
   },
 };
