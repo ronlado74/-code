@@ -20,7 +20,7 @@ LRUCache.prototype.put = function (key, value) {
   }
 
   this.map.set(key,value); // 放到最下面表示最新使用
-
+  
   if (this.map.size > this.capacity) {
     // 这里有个知识点
     // map的entries方法，还有keys方法(可以看mdn))，会返回一个迭代器
