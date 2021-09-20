@@ -19,5 +19,5 @@ class family {
 }
 
 let son = new family("wxy");
-console.log(son.age); //20
+console.log(son.age); //18
 console.log(family.must());

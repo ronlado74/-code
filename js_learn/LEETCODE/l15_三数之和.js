@@ -31,4 +31,4 @@ var threeSum = function(nums) {
   }
   return stack
 };
-console.log(threeSum(nums))
+

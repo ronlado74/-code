@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="watch-example">
+      <p>
+        Ask a yes/no question:
+        <input v-model="question" />
+      </p>
+      <p>{{ answer }}</p>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+      var watchExampleVM = new Vue({
+        el: "#watch-example",
+        data: {
+          question: "",
+          answer: "I cannot give you an answer until you ask a question!",
+        },
+        watch: {
+          // 如果 `question` 发生改变，这个函数就会运行   
+          question: function (newQuestion, oldQuestion) {
+            this.answer = "Waiting for you to stop typing...";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
