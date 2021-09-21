@@ -8,19 +8,20 @@
   </head>
   <body>
     <script>
-      s = "abcabcbb";
-
-      let arr = [1, 2, 3, 4, 5];
-      let arr2 = [];
-      let k = 2;
-      for (let i = 0; i < arr.length; i += k) {
-        if (i + k <= arr.length) {
-          arr2.push(arr.slice(i, i + k));
-        } else {
-          arr2.push(arr.slice(i, arr.length));
-        }
-      }
-      console.log(arr2)
+prices = [7,1,5,3,6,4]
+var maxProfit = function(prices) {
+  let max = 0
+  for(let i = 0; i < prices.length; i++){
+    for(let j = i + 1; j < prices.length; j++){
+       let p = prices[j] - prices[i]
+       if(p >= max){
+         max = p;
+       }
+    }
+  }
+  return max
+};
+console.log(maxProfit(prices))
     </script>
   </body>
 </html>
