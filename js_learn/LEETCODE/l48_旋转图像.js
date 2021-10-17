@@ -1,5 +1,6 @@
 matrix = [[1,2,3],[4,5,6],[7,8,9]]
 /* 方法一 */
+/* 用一个数组记录 */
 var rotate = function(matrix) {
   let temp = new Array(matrix.length).fill(0).map(() => Array(matrix[0].length).fill(0))
   for(let i = 0; i < matrix.length; i++){
@@ -20,6 +21,7 @@ var rotate = function(matrix) {
 };
 
 /* 方法二 */
+/* 拼接字符串 */
 var rotate = function(matrix) {
   let l = matrix[0].length - 1
   for(let i = 0; i < matrix.length; i++){
