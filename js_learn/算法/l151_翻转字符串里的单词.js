@@ -14,4 +14,5 @@ var reverseWords = function(s) {
   }
   console.log(r_arr.join(','))
 };
+console.log(reverseWords(s))
 
