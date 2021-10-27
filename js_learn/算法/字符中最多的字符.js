@@ -8,7 +8,12 @@ for(let i = 0; i < str.length; i++){
     o[char] = 1
   }
 }
-console.log(o)
+/* let arr = []
+for(let key in o){
+  let value = key + o[key]
+  arr.push(value)
+}
+console.log(arr.join('')) */
 let max = 0
 for(let key in o){
   if(o[key] >= max ){

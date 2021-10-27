@@ -8,30 +8,27 @@
   </head>
   <body>
     <script>
-      intervals = [[4,5],[1,4],[0,1]]
-      var merge = function (intervals) {
-        let i = 0;
-        //将数组按左端点排序
-        for (let j = 1; j < intervals.length; j++) {
-          if (intervals[j][0] < intervals[j - 1][0]) {
-            let temp = intervals[j];
-            intervals[j] = intervals[j - 1];
-            intervals[j - 1] = temp;
+     nums = [3,0,1]
+      var missingNumber = function (nums) {
+        let n = 1;
+        if (nums.length == 1) return n;
+         nums.sort((a, b) => 
+          a - b
+        );
+        let arr = new Array(nums.length + 1).fill(0);
+        for (let i = 0; i < arr.length; i++) {
+          arr[i] = i;
+          if (i > nums.length - 1) {
+            n = arr[i];
+          } else if (arr[i] != nums[i]) {
+            n = arr[i];
+            break;
           }
         }
-
-        while (i < intervals.length - 1) {
-          if (intervals[i][1] >= intervals[i + 1][0]) {
-            let cur = Math.max(intervals[i][1], intervals[i + 1][1]);
-            intervals[i] = [intervals[i][0], cur];
-            intervals.splice(i + 1, 1);
-          } else {
-            i++;
-          }
-        }
-        return intervals;
+        console.log(arr);
+        return n;
       };
-      merge(intervals);
+      missingNumber(nums);
     </script>
   </body>
 </html>
