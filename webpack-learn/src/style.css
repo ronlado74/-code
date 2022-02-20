@@ -1,0 +1,7 @@
+.hello{
+  background-color: pink;
+}
+
+.block-bg{
+  background-image: url(./assets/pngImg.png) !important;
+}

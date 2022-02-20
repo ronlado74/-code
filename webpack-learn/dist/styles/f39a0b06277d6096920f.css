@@ -1,0 +1,12 @@
+/*!********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/style.css ***!
+  \********************************************************************************************************/
+.hello {
+  background-color: pink;
+}
+.block-bg {
+  background-image: url(../images/e840b278fae44dfffe6e.png) !important;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGVzL2YzOWEwYjA2Mjc3ZDYwOTY5MjBmLmNzcyIsIm1hcHBpbmdzIjoiOzs7QUFBQTtFQUNFO0FBQ0Y7QUFFQTtFQUNFO0FBQUYiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly93ZWJwYWNrLWxlYXJuLy4vc3JjL3N0eWxlLmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIuaGVsbG97XG4gIGJhY2tncm91bmQtY29sb3I6IHBpbms7XG59XG5cbi5ibG9jay1iZ3tcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKC4vYXNzZXRzL3BuZ0ltZy5wbmcpICFpbXBvcnRhbnQ7XG59Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9*/
