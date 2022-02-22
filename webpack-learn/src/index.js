@@ -25,3 +25,15 @@ blockTxt.textContent = expTxt
 document.body.appendChild(blockTxt)
 
 document.body.classList.add('hello')
+
+
+//懒加载,预加载
+//webpackPrefetch: true 在网络空闲的时候去预加载资源  webpackPreload: true 和懒加载类似
+const button = document.createElement('button')
+button.textContent = '点击执行加法'
+button.addEventListener('click', () => {
+  import(/* webpackChunkName: 'math', webpackPrefetch: true */'./math.js').then(({ add }) => {
+    console.log(add(1, 2))
+  })
+})
+document.body.appendChild(button)

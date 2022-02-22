@@ -7,10 +7,28 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin') //插件 压�
 const { Template } = require('webpack')
 //webpack 配置文件，由于运行在node.js 因此可以通过模块导出
 module.exports = {
-  entry: './src/index.js',  //入口文件
+  entry: {
+    index: './src/index.js',
+    another: './src/other_module.js'
+  },  //入口文件,多入口文件 实现代码分离
+
+  /* entry: {
+    index: {
+      import: './src/index.js',
+      dependOn: 'shared'
+    },
+    another: {
+      import: './src/other_module.js',
+      dependOn: 'shared'
+    },
+    shared: 'lodash', //当上面两个模块含有lodash时，抽离模块，并取名为shared 
+  },  //入口文件,多入口文件 实现代码分离2 */
+
+  //实现代码分离方式3，使用插件
 
   output: {
-    filename: 'bundle.js',  //指定输出文件文件名
+    // filename: 'bundle.js',  //指定输出文件文件名
+    filename: '[name].bundle.js',  //多入口需要配置 
     path: path.resolve(__dirname, './dist'),  //导出文件所在位置,(注意需要设置为绝对路径)
     clean: true,  //将上一次打包的文件删除
     assetModuleFilename: 'images/[contenthash][ext]',  //图片资源输出
@@ -86,9 +104,13 @@ module.exports = {
     ]
   },
 
-  // optimiziton: {
-  //   minimizer: [
-  //     new CssMinimizerPlugin()
-  //   ]
-  // }, //优化项
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin()  //优化css代码
+    ],
+
+    splitChunks: {
+      chunks: 'all'  //实现代码分割，并将公共代码抽离到一个单独的文件
+    }
+  }, //优化项
 }
