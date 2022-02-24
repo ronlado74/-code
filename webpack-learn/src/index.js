@@ -24,7 +24,7 @@ blockTxt.classList.add('block-bg')
 blockTxt.textContent = expTxt
 document.body.appendChild(blockTxt)
 
-document.body.classList.add('hello') //
+document.body.classList.add('hello')
 
 
 //懒加载,预加载
