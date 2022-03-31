@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex使用</title>
+  <style>
+    /* flex-basis:0 和flex-basis: auto的区别
+        flex-basis:0 设置width不起效果
+        flex-basis: auto width有效果，flex的宽度为 总宽度 - width再去平分
+    
+    */
+    .father {
+      width: 800px;
+      height: 200px;
+      background-color: red;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .left {
+      /* flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto; */
+      width: 100px;
+      background-color: yellow;
+    }
+
+    .center {
+      /* flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto; */
+      width: 100px;
+      background-color: pink;
+    }
+
+    .right {
+      /* flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 0; */
+      width: 100px;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="father">
+    <div class="left"></div>
+    <div class="center"></div>
+    <div class="right"></div>
+  </div>
+</body>
+
+</html>

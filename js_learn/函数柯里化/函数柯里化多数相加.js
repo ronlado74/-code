@@ -1,6 +1,6 @@
-function sum(a) {
+function sum (a) {
   let res = a
-  function add(b) {
+  function add (b) {
     res += b
     return add
   }
