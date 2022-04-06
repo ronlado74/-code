@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="div">
+    我是div
+    <p id="p">
+      我是p
+      <span id="span">我是span</span>
+    </p>
+  </div>
+</body>
+<script>
+  const div = document.querySelector("#div");
+  const p = document.querySelector("#p");
+  const span = document.querySelector("#span");
+  // 捕获阶段，这里将useCapture设置为true
+  // div.addEventListener("click", () => console.log("捕获阶段--div"), true);
+  // p.addEventListener("click", () => console.log("捕获阶段--p"), true);
+  // 目标阶段
+  span.addEventListener("click", (e) => {
+    // e.stopPropagation();
+    console.log("目标阶段--span")
+  });
+  // 冒泡阶段，useCapture默认false，不写了
+  div.addEventListener("click", () => console.log("冒泡阶段--div"));
+  p.addEventListener("click", () => console.log("冒泡阶段--p"));
+</script>
+
+</html>

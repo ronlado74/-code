@@ -21,7 +21,7 @@ const App = () => {
   useEffect(() => {
     console.log('渲染')
   })
-  const n = 20000;
+  const n = 50000;
   const [state, setState] = useState(false);
   const [isPending, startTransition] = useTransition({ timeoutMs: 3000 });
 
