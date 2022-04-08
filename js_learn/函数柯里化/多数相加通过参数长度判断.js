@@ -14,5 +14,5 @@ console.log(sum(1)(2)())
 const sum2 = a => b => {
   return b ? sum2(a + b) : a
 }
-console.log(sum2(1)(2)())
+console.log(sum2(2)(2)())
 

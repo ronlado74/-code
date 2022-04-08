@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="button">111</button>
+  <button class="button2">单例模式</button>
+</body>
+<script>
+  let createAlertMessage = function (html) {
+    console.log(77777)
+    var div = document.createElement('div');
+    div.innerHTML = html;
+    div.style.display = 'none';
+    document.body.appendChild(div);
+    return div;
+  }
+  let b1 = document.querySelector('.button');
+  b1.addEventListener('click', function () {
+    console.log(11111)
+    let alertMessage = createAlertMessage('您的知识需要付费充值！');
+    alertMessage.style.display = 'block';
+  })
+
+
+  let b2 = document.querySelector('.button2');
+  let getSingleton = function (fn) {
+    var result;
+    console.log(result, 'result++++++++')
+    return function () {
+      console.log(this, 'this+++') //此时this指向windows
+      console.log(result, 'result+++') //除了第一次result没有值，后面每次result都有值
+      return result || (result = fn.apply(this, arguments)); // 确定this上下文并传递参数
+    }
+  }
+  let createSingleAlertMessage = getSingleton(createAlertMessage)
+  b2.addEventListener('click', function () {
+    console.log(222222)
+    let alertMessage = createSingleAlertMessage('您的知识需要付费充值！');
+    alertMessage.style.display = 'block';
+  })
+</script>
+
+</html>
