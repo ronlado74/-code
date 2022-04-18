@@ -11,6 +11,14 @@ const myNew = function (func, ...args) {
 function Test (name, age) {
   this.name = name;
   this.age = age;
+  this.stack = []
 }
+
+const S = function () {
+  this.stack = []
+}
+
+let s = new S()
+console.log(s)
 
 console.log(myNew(Test, '小汪', 18))

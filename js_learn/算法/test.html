@@ -10,28 +10,44 @@
 
 <body>
   <script>
-    let nums = [-1, 0, 3, 5, 9, 12]
-    let target = 2
-    var search = function (nums, target) {
-      let left = 0
-      let right = nums.length - 1
-      while (left <= right) {
-        let mid = Math.floor((left + right) / 2)
-        if (nums[mid] === target) {
-          print(mid)
-          return mid
-        }
-        if (nums[mid] < target) {
-          left = mid + 1
-        }
-        if (nums[mid] > target) {
-          right = mid - 1
+    let s = " 3+21*2 "
+    var calculate = function (s) {
+      //去除所有空格
+      //1.遍历字符串，将数字存入栈中
+      //如果是是‘+’，则将后一个数字压入栈中
+      //如果是‘-’，则将相反数压入栈中
+      //如果是‘*’或者‘/’则将栈顶元素与 符号后一个元素进行计算，将栈顶元素弹出，并将结果压入栈中
+      //最后将栈中元素相加
+      let stack = []
+      let num = 0
+      let operation = '+'
+      //去除所有空格
+      let s1 = ''
+      for (let i of s) {
+        if (i !== ' ') {
+          s1 += i
         }
       }
-      print(-1)
-      return -1
+      for (let i = 0; i < s1.length; i++) {
+        if (!isNaN(s1[i])) {
+          //这一步很关键，有可能出现连续的数字
+          num = num * 10 + Number(s1[i])
+        }
+        if (isNaN(s1[i]) || i === s1.length - 1) {
+          switch (operation) {
+            case '+': stack.push(num); break;
+            case '-': stack.push(-num); break;
+            case '*': stack.push(stack.pop() * num); break;
+            case '/': stack.push(Math.floor(stack.pop() / num)); break;
+          }
+          operation = s[i];
+          num = 0;
+        }
+      }
+      console.log(stack)
+      return stack.reduce((pre, cur) => { return pre + cur })
     };
-    search(nums, target)
+    console.log(calculate(s))
   </script>
 </body>
 
