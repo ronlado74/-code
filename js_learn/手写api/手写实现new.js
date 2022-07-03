@@ -22,3 +22,5 @@ let s = new S()
 console.log(s)
 
 console.log(myNew(Test, '小汪', 18))
+
+

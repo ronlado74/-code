@@ -30,7 +30,7 @@ function MyPromise (fn) {
         //修改传入的值
         self.value = value
         //执行回调函数
-        self.rejectCallbacks.forEach(callback => callback(value))
+        self.resolveCallbacks.forEach(callback => callback(value))
       }
     })
   }
@@ -54,7 +54,7 @@ function MyPromise (fn) {
   }
 }
 
-Promise1.prototype.then = (onResolved, onRejected) => {
+MyPromise.prototype.then = (onResolved, onRejected) => {
   // 首先判断两个参数是否为函数类型，因为这两个参数是可选参数
   onResolved = typeof onRejected === 'function' ? onResolved : function (value) { return value }
   onRejected = typeof onRejected === 'function' ? onRejected : function (err) { throw (err) }
@@ -134,6 +134,10 @@ let p3 = new Promise(function (resolve, reject) {
     resolve(3)
   }, 3000)
 })
+
+Promise.race([p3, p1, p2]).then(res => {
+  console.log(res) // [3, 1, 2]
+})
 promiseAll([p3, p1, p2]).then(res => {
   console.log(res) // [3, 1, 2]
 })
@@ -167,3 +171,6 @@ let p4 = new Promise((resolve, reject) => {
     resolve('我是成功！！');
   }, 2000);
 }).then(() => console.log(1), () => console.log(2))
+
+
+

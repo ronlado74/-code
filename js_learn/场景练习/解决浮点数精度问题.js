@@ -1,0 +1,1 @@
+Math.abs(0.45 + 0.45 - 0.9) < Number.EPSILON // true
