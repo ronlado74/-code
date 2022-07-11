@@ -1,10 +1,14 @@
-const arr = [1, 2, 3, [4, [5]]]
-const flat = arr => {
-  while (arr.some(item => Array.isArray(item))) {
-    arr = [].concat(...arr)
+const arr = [2, 2, 1, 7, 5]
+
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i; j < arr.length - i - 1; j++) {
+    if (arr[j + 1] < arr[j]) {
+      let temp = arr[j]
+      arr[j] = arr[j + 1]
+      arr[j + 1] = temp
+    }
   }
-  return arr
 }
 
-
-console.log(flat(arr))
+console.log(arr)

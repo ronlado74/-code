@@ -45,4 +45,16 @@ let son2 = new Son("wxb", '男');
 console.log(son2.info.name); // "wxb"
 console.log(son2.age); // 18
 
-son2.getInfo()
+//son2.getInfo() //报错
+
+/* 
+  优点：
+  1.可以在子类构造函数中向父类传参数
+  2.父类的引用属性不会被共享
+
+  缺点：
+  1.子类不能访问父类原型上定义的方法
+  （即不能访问Parent.prototype上定义的方法），
+   因此所有方法属性都写在构造函数中，
+   每次创建实例都会初始化
+*/

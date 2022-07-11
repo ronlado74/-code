@@ -6,8 +6,8 @@ function objectCopy (obj) {
 
 function inheritPrototype (Child, Parent) {
   let prototype = objectCopy(Parent.prototype); //创建对象
-  prototype.constructor = Child; // 增强对象
   Child.prototype = prototype; // 赋值对象
+  prototype.constructor = Child; // 增强对象
 }
 
 function Parent (name) {
