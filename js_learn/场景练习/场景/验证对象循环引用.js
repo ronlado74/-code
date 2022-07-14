@@ -20,7 +20,7 @@ const cycle = target => {
   return false
 }
 
-
+console.log(obj)
 
 
 

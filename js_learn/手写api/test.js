@@ -1,14 +1,14 @@
-const arr = [2, 2, 1, 7, 5]
-
-
-for (let i = 0; i < arr.length; i++) {
-  for (let j = i; j < arr.length - i - 1; j++) {
-    if (arr[j + 1] < arr[j]) {
-      let temp = arr[j]
-      arr[j] = arr[j + 1]
-      arr[j + 1] = temp
-    }
+function recution (num) {
+  if (num === 1 || num === 2) {
+    return 1
+  } else {
+    return recution(num - 2) + recution(num - 1)
   }
 }
+console.log(recution(6))
 
+let arr = []
+for (let i = 1; i <= 5; i++) {
+  arr.push(recution(i))
+}
 console.log(arr)
