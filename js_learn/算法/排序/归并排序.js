@@ -1,3 +1,4 @@
+//时间复杂度O（nlog2n）,空间复杂度O(n),稳定
 const mergeSort = arr => {
   //采用自上而下的递归方法
   const len = arr.length;

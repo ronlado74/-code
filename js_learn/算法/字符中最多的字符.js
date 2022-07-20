@@ -1,10 +1,10 @@
 let str = 'aaabbcc'
 let o = {}
-for(let i = 0; i < str.length; i++){
+for (let i = 0; i < str.length; i++) {
   let char = str[i]
-  if(o[char]){
+  if (o[char]) {
     o[char]++
-  }else{
+  } else {
     o[char] = 1
   }
 }
@@ -15,14 +15,14 @@ for(let key in o){
 }
 console.log(arr.join('')) */
 let max = 0
-for(let key in o){
-  if(o[key] >= max ){
+for (let key in o) {
+  if (o[key] >= max) {
     max = o[key]
   }
 }
 let word = ''
-for(let key in o){
-  if(o[key] == max){
+for (let key in o) {
+  if (o[key] == max) {
     word = key
   }
 }
@@ -30,21 +30,21 @@ console.log(word + max)
 
 //使用map方法
 let map = new Map()
-for(let i = 0; i < str.length; i++){
-  if(map.has(str[i])){
+for (let i = 0; i < str.length; i++) {
+  if (map.has(str[i])) {
     let n = map.get(str[i])
     n++
     map.set(str[i], n)
-  }else{
+  } else {
     map.set(str[i], 1)
   }
 }
-for(let value of map.values()){
-  if(value >= max)
+for (let value of map.values()) {
+  if (value >= max)
     console.log(value)
 }
-for(let item of map){
-  if(item[1] == max){
+for (let item of map) {
+  if (item[1] == max) {
     console.log(item)
   }
 }

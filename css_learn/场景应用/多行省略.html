@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="one" style="width:100px; height:100px; background-color: red; color: #000">
+    <span>但是ie浏览器是个孤儿，它不兼容，
+      搜索了很多其他办法觉得甚是麻烦，加上时间紧迫,
+      如下：给容器一个固定高度，超出隐藏的那种
+      ，再结合以下，给你个眼神自己体会</span>
+  </div>
+
+  <div style="width:1000px; height:100px; background-color: pink; color: #000">
+    <span>但是ie浏览器是个孤儿，它不兼容，
+      搜索了很多其他办法觉得甚是麻烦，加上时间紧迫,
+      如下：给容器一个固定高度，超出隐藏的那种
+      ，再结合以下，给你个眼神自己体会</span>
+  </div>
+</body>
+
+<script>
+  let a = document.querySelector('.one')
+  // a.addEventListener('click', () => { a.style.visibility = a.style.visibility === 'hidden' ? 'visible' : 'hidden' })
+  a.addEventListener('click', () => { a.style.display = 'none' })
+</script>
+
+</html>

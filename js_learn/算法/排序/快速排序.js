@@ -1,21 +1,21 @@
-let arr = [1,3,2,6,5]
-
-function quickSort(arr){
-  if(arr.length <= 1){
+let arr = [1, 3, 2, 6, 5]
+//时间复杂度O（nlog2n）,空间复杂度O(n),不稳定
+function quickSort (arr) {
+  if (arr.length <= 1) {
     return arr
   }
   let pIndex = Math.floor(arr.length / 2)
-  let p = arr.splice(pIndex,1)[0]
+  let p = arr.splice(pIndex, 1)[0]
   let right = []
   let left = []
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] < p){
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < p) {
       left.push(arr[i])
-    }else{
+    } else {
       right.push(arr[i])
     }
   }
-  return quickSort(left).concat([p],quickSort(right))
+  return quickSort(left).concat([p], quickSort(right))
 }
 
 console.log(quickSort(arr))
@@ -81,17 +81,17 @@ xhr.error = function(){
 }
 xhr.send(null) */
 
-let arr1 = [[1],[2,3],[[4]],5]
+let arr1 = [[1], [2, 3], [[4]], 5]
 let arr2 = arr1.flat(Infinity)
 console.log(arr2)
 
 
 //实现add()
-function add(a){
-  function s(b){
+function add (a) {
+  function s (b) {
     return a = a + b
   }
-  s.toString = function(){
+  s.toString = function () {
     return a
   }
   return s

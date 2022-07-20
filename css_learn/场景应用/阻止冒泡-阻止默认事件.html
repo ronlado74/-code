@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="divOne" onclick="alert('我是最外层');">
+    <div id="divTwo" onclick="alert('我是中间层！')">
+      <a id="hr_three" href="http://www.baidu.com" mce_href="http://www.baidu.com" onclick="alert('我是最里层！')">点击我</a>
+    </div>
+  </div>
+
+
+  <div id='d'>
+    <p id='p'>
+      <span id='s'>Click Me!</span>
+    </p>
+  </div>
+</body>
+
+
+<script>
+  let a = document.getElementById("hr_three")
+  a.onclick = function (event) {
+    event.stopPropagation(); //阻止了事件冒泡,只有弹出自己的"我是最里层"，然后链接到百度、
+    // event.preventDefault()
+    // return false
+  }
+
+
+  var div = document.getElementById('d');
+  var p = document.getElementById('p');
+  var span = document.getElementById('s');
+
+  function onClickFn (event) {
+    var tagName = event.currentTarget.tagName;
+    var phase = event.eventPhase;
+    alert(tagName, phase);
+  }
+
+  div.addEventListener('click', onClickFn, true);
+  p.addEventListener('click', onClickFn, false);
+  span.addEventListener('click', onClickFn, true)
+</script>
+
+</html>

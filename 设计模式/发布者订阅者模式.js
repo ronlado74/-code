@@ -1,7 +1,6 @@
 //发布者
 class Dep {
   constructor() {
-    œ
     this.subs = []
   }
 

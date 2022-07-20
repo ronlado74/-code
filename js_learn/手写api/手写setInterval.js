@@ -1,4 +1,4 @@
-function mySetInterval () {
+function mySetInterval () { //注意只能使用function构造，不能使用箭头函数
   console.log(arguments, '2222222')
   mySetInterval.timer = setTimeout(() => {
     console.log(arguments, '11111111111')
@@ -15,14 +15,3 @@ mySetInterval(() => {
   console.log(111111)
 }, 1000)
 
-
-const test = () => {
-  console.log(arguments)
-}
-
-test(1, 23)
-
-function test2 () {
-  console.log(arguments)
-}
-test2(4, 5)
