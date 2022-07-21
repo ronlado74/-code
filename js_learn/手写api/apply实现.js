@@ -25,5 +25,5 @@ Function.prototype.myApply = function () {
 //测试
 console.log(Math.max.myApply(null, [1, 2, 4, 8]));
 let arr = [1, 2, 3]
-console.log(Math.max.call(null, ...arr));
+console.log(Math.max.call(Math, ...arr));
 

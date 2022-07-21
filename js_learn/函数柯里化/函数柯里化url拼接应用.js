@@ -7,6 +7,7 @@ function urlCurring (protocol) {
   }
 }
 let url_https = urlCurring('https://')
+console.log(urlCurring('https://')('xxx', '.co'))
 console.log(url_https('wang', '.com'))
 
 

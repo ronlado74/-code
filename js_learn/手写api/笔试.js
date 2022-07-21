@@ -9,6 +9,7 @@ function getName () { alert(5) }
 
 getName() */
 
+有问题
 /* let a = { x: 0 }
 
 function fn (obj) {
@@ -32,6 +33,14 @@ console.log(output) */
 /* var a = { b: 1 }
 function test (a) {
   a.b = 2
+  return a
+}
+console.log(test(a))
+console.log(a) */
+
+/* var a = 1
+function test (a) {
+  a = 3
   return a
 }
 console.log(test(a))
@@ -74,8 +83,25 @@ function func () {
 }
 func() */
 
-let arr = ['a', 'b', 'c', 'd', 'e', 'd', 'c']
+/* let arr = ['a', 'b', 'c', 'd', 'e', 'd', 'c']
 console.info(arr.lastIndexOf('c'), arr.lastIndexOf('d'))
 arr.length = 4
 console.log(arr)
-console.info(arr.lastIndexOf('c'), arr.lastIndexOf('d'))
+console.info(arr.lastIndexOf('c'), arr.lastIndexOf('d')) */
+
+
+/* function test () {
+  // var f = []
+  // let f = ''
+  // let f = 0
+  let f = {}
+  if (f) {
+    console.log(1)
+  }
+}
+test(); */
+
+/* (function () {
+  var a = b = 5
+})();
+console.log(a) */
