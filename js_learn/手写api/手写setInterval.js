@@ -1,7 +1,6 @@
 function mySetInterval () { //注意只能使用function构造，不能使用箭头函数
   console.log(arguments, '2222222')
   mySetInterval.timer = setTimeout(() => {
-    console.log(arguments, '11111111111')
     arguments[0]()
     mySetInterval(...arguments)
   }, arguments[1])
