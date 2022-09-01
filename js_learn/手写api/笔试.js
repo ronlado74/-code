@@ -9,7 +9,6 @@ function getName () { alert(5) }
 
 getName() */
 
-有问题
 /* let a = { x: 0 }
 
 function fn (obj) {
@@ -69,11 +68,13 @@ wrapper() */
 
 /* try {
   let flag = true
+  // var flag = true
 } catch { }
 
 var state = false
 function func () {
   if (typeof flag === 'undefined') {
+    // var flag = true
     console.log(1)
   }
   if (typeof state === 'undefined') {
@@ -105,3 +106,26 @@ test(); */
   var a = b = 5
 })();
 console.log(a) */
+
+
+/* var global = 'c'
+  ; (function (outArr) {
+    let outD = 'a';
+    (function (inArr) {
+      console.log(outArr)
+      console.log(inArr)
+      console.log(outD)
+      console.log(global)
+    })(456)
+  })(123) */
+
+function func (arg = 10) {
+  console.log(this.p)
+  console.log(arg)
+}
+
+func.p = 20
+const wrapper = func.bind({
+  p: 30
+})
+wrapper()

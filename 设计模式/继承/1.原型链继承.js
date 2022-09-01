@@ -1,4 +1,12 @@
 //将父类的实例作为子类的原型
+
+/*
+  优点：
+  1、父类方法可以复用
+  缺点：
+  1.父类的所有引用属性（info）会被所有子类共享，更改一个子类的引用属性，其他子类也会受影响
+  2.子类型实例不能给父类型构造函数传参
+ */
 function Parent () {
   this.isShow = true
   this.info = {
@@ -33,10 +41,3 @@ child2.info.gender = "女"
 console.log(child1.info) //{ name: 'wxy', age: 18, gender: '女' }
 child1.getInfo()  //{ name: 'wxy', age: 18, gender: '女' }
 
-/*
-  优点：
-  1、父类方法可以复用
-  缺点：
-  1.父类的所有引用属性（info）会被所有子类共享，更改一个子类的引用属性，其他子类也会受影响
-  2.子类型实例不能给父类型构造函数传参
- */

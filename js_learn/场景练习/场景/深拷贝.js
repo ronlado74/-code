@@ -13,34 +13,23 @@ console.log(obj1.a); // 1
 console.log(obj2.a); // 5
 console.log(obj3.a)
 
-// /* 数组深拷贝 */
-// var arr1 = [1, 2, 3];
-// var arr2 = arr1.concat();
-// arr1[0] = 4;
-// console.log(arr1); //4, 2, 3
-// console.log(arr2); //1, 2, 3
 
-// var arr1 = [1, 2, 3];
-// var arr2 = arr1.slice(0);
-// arr1[0] = 4;
-// console.log(arr1); //4, 2, 3
-// console.log(arr2); //1, 2, 3
 
-// var arr1 = [1, 2, 3];
-// var [...arr2] = arr1;
-// arr1[0] = 4;
-// console.log(arr1); //4, 2, 3
-// console.log(arr2); //1, 2, 3
-
-var arr1 = [1, [2, 3], [4], [[5, 6]], [[7]]]
-function deepCopy (arr) {
-  var out = [], len = arr.length
-  for (let i = 0; i < len; i++) {
-    if (arr[i] instanceof Array) {
-      out.push(deepCopy(arr[i]));
-    }
-    else out.push(arr[i])
+var array = [
+  { number: 1 },
+  { number: 2 },
+  { number: 3 },
+  [4], [[5, 6]]
+];
+function copy (obj) {
+  var newObj = obj.constructor === Array ? [] : {};
+  for (var i in obj) {
+    newObj[i] = typeof obj[i] === 'object' ? copy(obj[i]) : obj[i];
   }
-  return out;
+  return newObj
 }
-console.log(deepCopy(arr1))
+var copyArray = copy(array)
+copyArray[0].number = 100;
+copyArray[3][0] = 1
+console.log(array); //  [{number: 1}, { number: 2 }, { number: 3 }]
+console.log(copyArray); // [{number: 100}, { number: 2 }, { number: 3 }]
