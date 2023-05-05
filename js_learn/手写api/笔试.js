@@ -129,3 +129,8 @@ const wrapper = func.bind({
   p: 30
 })
 wrapper()
+
+let a = 1;
+
+while (a) { }
+console.log(a)

@@ -5,6 +5,9 @@ var A = {
   sayHello: function () {
     console.log(this.name);
   },
+  saySet: setTimeout(() => {
+    console.log(this.name)
+  }, 0)
 };
 
 var B = {
@@ -20,8 +23,16 @@ A.sayHello.call();  //window,严格模式中为undefined
 var A1 = {
   name: 'A1',
   sayHello: () => {
-     console.log(this.name)
+    console.log(this.name)
   }
 }
 
 A1.sayHello();// 还是以为输出A ? 错啦，其实输出的是window
+
+new Promise((resolve, reject) => {
+  resolve('sss')
+}).then(() => {
+  throw Error('Error')
+}).catch(err => {
+  return 'err111'
+}).then(err => { console.log(err) })

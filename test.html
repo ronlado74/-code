@@ -15,6 +15,14 @@
 
 <body>
   <div>1111</div>
+  <canvas id="css" width="300" height="300"></canvas>
 </body>
+<script>
+  var ct = document.getElementById('css').getContext('2d')
+  ct.moveTo(55, 10);
+  ct.lineTo(10, 100)
+  ct.lineTo(100, 100)
+  ct.fill()
+</script>
 
 </html>

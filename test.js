@@ -56,3 +56,22 @@ const obj = {
   }
 }
 obj.func.call(obj)
+
+
+let arr1 = [[90, 80, 80], [90, 100, 85], [90, 90, 85]]
+
+
+let a = [1, 2, 3]
+a.forEach(item => item + 1)
+
+
+let obj2 = (function () {
+  var innner = '1-2'
+  return {
+    innner: '1-1',
+    say: function () {
+      console.log(innner)
+    }
+  }
+})()
+obj2.say()

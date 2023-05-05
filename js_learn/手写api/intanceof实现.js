@@ -1,9 +1,9 @@
-function myInstanceof(left, right) {
+function myInstanceof (left, right) {
   // 获取对象的原型
   let proto = Object.getPrototypeOf(left)
   // 获取构造函数的 prototype 对象
-  let prototype = right.prototype; 
- 
+  let prototype = right.prototype;
+
   // 判断构造函数的 prototype 对象是否在对象的原型链上
   while (true) {
     if (!proto) return false;
@@ -12,4 +12,18 @@ function myInstanceof(left, right) {
     proto = Object.getPrototypeOf(proto);
   }
 }
-console.log(myInstanceof([],Array))
+console.log(myInstanceof([], Array))
+
+
+var myFunc = {
+  foo: 'bar',
+  func: function () {
+    var self = this
+    console.log(this.foo)
+    console.log(self.foo)
+      (function () {
+        console.log(this.foo)
+        console.log(self.foo)
+      }())
+  }
+}
