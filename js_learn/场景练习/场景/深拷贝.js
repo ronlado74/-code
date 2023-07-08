@@ -33,3 +33,17 @@ copyArray[0].number = 100;
 copyArray[3][0] = 1
 console.log(array); //  [{number: 1}, { number: 2 }, { number: 3 }]
 console.log(copyArray); // [{number: 100}, { number: 2 }, { number: 3 }]
+
+//深拷贝数组，对象都行
+function deepClone (obj, newObj) {
+  var newObj = newObj || {};
+  for (let key in obj) {
+    if (typeof obj[key] === 'object') {
+      newObj[key] = (obj[key].constructor === Array) ? [] : {}
+      deepClone(obj[key], newObj[key]);
+    } else {
+      newObj[key] = obj[key]
+    }
+  }
+  return newObj;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>debounce实现</title>
+
+</head>
+
+<body>
+  <input id="input11" />
+  <h3 id="hn1"></h3>
+</body>
+
+<script>
+  const debounce = function (fn, wait) {
+    let time = null;
+    return function () {
+      let context = this;
+      let args = [...arguments];
+      console.log(args)
+      if (time) clearTimeout(
+        time
+      )
+      time = setTimeout(() => {
+        fn.apply(context, args)  //如果是箭头函数其实没有必要记录这个this
+      }, wait)
+    }
+  }
+
+  const change = (e) => {
+    console.log('我来啦')
+    let hn1 = document.getElementById('hn1')
+    hn1.innerHTML = e.target.value
+  }
+
+  let input11 = document.getElementById('input11')
+  input11.addEventListener('textInput', debounce(change, 2000))
+
+
+</script>
+
+</html>

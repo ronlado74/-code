@@ -20,10 +20,6 @@ import { useRouter } from 'vue-router'
 
 const Router = useRouter()
 
-let a = {
-  name: 'wxy',
-  do: { name: 'wxy', a: 'ssssss' }
-}
 
 const formInline = reactive({
   user: '',
