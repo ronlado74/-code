@@ -1,13 +1,18 @@
 <template>
   <UniTable @del="del" @edit="edit" :headings="headings" :inputData="inputData"></UniTable>
-  <input :value="inputData[0].id" @change="ddd($event)" />
-  <input v-model="inputData[0].id">
+
+  <UniDilog :editData="editData"></UniDilog>
 </template>
 
 <script setup lang='ts'>
 import { ref } from 'vue'
 import { TableData } from '../components/UniTable/tableType'
 import UniTable from '../components/UniTable/index.vue'
+import UniDilog from '@/components/UniDilog.vue';
+
+
+
+
 const inputData = ref<TableData[]>([{ id: '1', name: 'sdadasd', size: 2, version: 2.2, upData: 'wwww' },
 { id: '2', name: 'wxy', size: 2, version: 2.2, upData: '2020' },
 { id: '3', name: 'sasd', size: 3, version: 2.2, upData: '21321' },
@@ -39,6 +44,8 @@ const inputData = ref<TableData[]>([{ id: '1', name: 'sdadasd', size: 2, version
 
 const headings = ["ID", "名称", "大小", "版本", "更新时间"]
 
+const editData = ref<TableData>()
+
 
 
 
@@ -51,12 +58,11 @@ const del = (id: string) => {
 }
 
 const edit = (id: string) => {
-
-}
-
-const ddd = (e: Event) => {
-
-  inputData.value[0].id = (e.target as HTMLInputElement).value
+  inputData.value.forEach((value, index, array) => {
+    if (value.id === id) {
+      editData.value = value
+    }
+  })
 }
 
 </script>
