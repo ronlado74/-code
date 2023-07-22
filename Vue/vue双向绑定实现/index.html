@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue双向绑定实现</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{str}}
+    <P>{{str}}</P>
+    <button @click="cli">{{bt}}</button>
+    <input type="text" v-model="str">
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      // data: {
+      //   str: 'hello world',
+      //   qoq: 'ssss'
+      // },
+      data () {
+        return {
+          str: 'hello world 777',
+          bt: '点击按钮'
+        }
+      },
+      methods: {
+        cli () {
+          console.log(this.str)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
