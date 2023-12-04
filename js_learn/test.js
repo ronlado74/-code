@@ -21,4 +21,3 @@ let r = test1.map((key, value) => {
   return ++value
 })
 console.log(r)
-console.log(2222, 1111)
