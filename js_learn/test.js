@@ -20,4 +20,4 @@ Object.prototype.map = function (fn) {
 let r = test1.map((key, value) => {
   return ++value
 })
-console.log(r)
+console.log(r, 1)
